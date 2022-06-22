@@ -5,8 +5,7 @@ import themeSwitchIcon from '../../assets/header/theme-switch.png';
 
 import './styles.css';
 
-function Header() {
-    console.log('HEY');
+const Header = () => {
   return (
     <div className='header'>
         <div className='logoContainer'>

@@ -1,0 +1,30 @@
+.main {
+    max-height: 50vh;
+}
+
+.mainContent {
+    display: flex;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #fff;
+}
+
+.punkHighlight {
+    flex: 0.25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.punkContainer {
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    margin-right: 20px;
+}
+
+.punkDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0.75;
+}
