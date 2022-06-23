@@ -1,5 +1,6 @@
 .collectionCard {
     color: white;
+    cursor: pointer;
     background-color: #1a1c1e;
     border-radius: 20px;
     overflow: hidden;

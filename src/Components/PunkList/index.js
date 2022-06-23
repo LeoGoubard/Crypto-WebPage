@@ -3,17 +3,14 @@ import CollectionCard from '../CollectionCard'
 
 import './styles.css';
 
-const PunkList = ({ punkListData }) => {
+const PunkList = ({ punkListData, setSelectedPunk }) => {
   return (
     <div className='punkList'>
         {punkListData.map(punkItem => (
-            <div>
+            <div key={punkItem.token_id} >
                 <CollectionCard
-                    key={punkItem.token_id}
-                    id={punkItem.token_id}
-                    name={punkItem.name}
-                    traits={punkItem.traits}
-                    image={punkItem.image_original_url}
+                    punk={punkItem}
+                    setSelectedPunk={setSelectedPunk}
                 />
             </div>
         ))}

@@ -3,13 +3,19 @@ import weth from '../../assets/weth.png';
 
 import './styles.css';
 
-const  CollectionCard = ({ id, name, traits, image }) => {
+const  CollectionCard = ({ punk, setSelectedPunk }) => {
+  const {
+    token_id,
+    name,
+    traits,
+    image_original_url,
+  } = punk;
   return (
-    <div className='collectionCard'>
-        <img src={image} alt='' />
+    <div className='collectionCard' onClick={() => setSelectedPunk(punk)}>
+        <img src={image_original_url} alt='' />
         <div className='details'>
             <div className='name'>
-                {name} <div className='id'> #{id}</div>
+                {name} <div className='id'> #{token_id}</div>
             </div>
             <div className='priceContainer'>
                 <img src={weth} className='wethImage' alt='' />

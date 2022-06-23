@@ -7,19 +7,26 @@ import Main from './Components/Main';
 
 const App = () => {
   const [punkListData, setPunkListData] = useState([])
+  const [selectedPunk, setSelectedPunk] = useState();
+
   const getMyNfts = async () => {
-      const openSeaData = await axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x76B6759516e487eE39DB618934FF98a6c144D92f&order_direction=asc');
-      setPunkListData(openSeaData.data.assets);
+      const openSeaData = await axios.get(process.env.REACT_APP_API_ADDRESS);
+      if (openSeaData) {
+        setPunkListData(openSeaData.data.assets);
+        setSelectedPunk(openSeaData.data.assets[2])
+      }
+      return openSeaData;
   }
 
   useEffect(() => {
       getMyNfts();
   }, [])
+  
   return (
     <div className='app'>
       <Header />
-      <Main activePunk={punkListData[1]} />
-      <PunkList punkListData={punkListData} />
+      {selectedPunk && <Main activePunk={selectedPunk} />}
+      <PunkList punkListData={punkListData} setSelectedPunk={setSelectedPunk} />
     </div>
   );
 }
